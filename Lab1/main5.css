@@ -1,0 +1,20 @@
+.login{
+    height: 23px;
+    border-color:beige;
+    border-radius: 15px;
+    border: 1px solid black;
+}
+
+.form_login{
+    display: flex;
+    flex-direction: column;
+    /* flex-wrap: wrap;  */
+    justify-content: center;
+    align-items: center; 
+}
+
+.form_member{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+}

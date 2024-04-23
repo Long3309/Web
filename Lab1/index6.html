@@ -1,0 +1,67 @@
+<!DOCTYPE html5>
+<html>
+    <head>
+        <title>Đăng ký dự thưởng</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="main6.css">
+    </head>
+    <body>
+        <h1 align="center">Phiếu đăng ký tham gia dự thưởng</h1>
+        <table align="center" border="1px" style="width: 500px">
+            <tbody>
+                <tr class="r">
+                    <td>Họ và tên</td>
+                    <td>
+                        <input class="input" type="name" placeholder="Nguyễn Văn A">
+                    </td>
+                </tr>
+                <tr class="r">
+                    <td>Địa chỉ</td>
+                    <td>
+                        <input style="width: 350px" type="text" placeholder="abc,xyz,jqk">
+                    </td>
+                </tr>
+                <tr class="r">
+                    <td>Điện thoại</td>
+                    <td>
+                        <input class="input" type="tel" placeholder="09xxxxxxxx" pattern="[0-9]{4} - [0-9]{3} - [0-9]{3}">
+                    </td>
+                </tr>
+                <tr class="r">
+                    <td>Phái</td>
+                    <td>
+                        <input type="radio" name="sex" value="nam" checked/>Nam
+                        <input type="radio" name="sex" value="nu" checked/>Nữ<br>
+                    </td>
+                </tr>
+                <tr class="r">
+                    <td>Sản phẩm</td>   
+                    <td>
+                        <!-- <input list="browsers"> hiển thị danh sách chọn kết quả nhưng vẫn điền giá trị vào ô được -->
+                            <!-- <datalist id="browsers"> -->
+                        <select class="product" class="input" size="4" name="Product"> <!--hiển thị danh sách chỉ chọn được kết quả-->
+                            <optgroup label="Sản phẩm">
+                                <option value="Iphone 11 Pro Max">Iphone 11 Pro Max</option>
+                                <option value="Samsung Glaxy Note 20">Samsung Glaxy Note 20</option>
+                                <option value="Xiaomi Redmi K30">Xiaomi Redmi K30</option>
+                                <option value="OPPO A53">OPPO A53</option>
+                            </optgroup>
+                        </select>
+                            <!-- </datalist> -->
+                    </td>
+                </tr>
+                <tr class="r">
+                    <td>Số dự đoán</td>
+                    <td>
+                        <input class="input" type="number" name="quantity" min="0" max="10" step="1" value="5">
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" align="center">
+                        <input type="button" value="Đăng ký">
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </body>
+</html>

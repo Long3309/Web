@@ -1,0 +1,26 @@
+body{
+    background-color: #FFEDCA;
+}
+
+table{
+    border-spacing: 0px;
+}
+td{
+    width: 100px;
+    padding-left: 3px;
+}
+.input{
+    width: 180px;
+}
+.product{
+    border-style: groove;
+    border: 2px solid black;
+    border-radius: 4px;
+}
+:root{
+    --text-color: blue;
+}
+
+.r{
+    color: var(--text-color);
+}

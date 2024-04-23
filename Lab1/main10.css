@@ -1,0 +1,136 @@
+*{
+    box-sizing: border-box; /* Cho phép phần padding nằm trong kích thước đc định sẵn */
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18;
+    color: rgb(62, 62, 217);
+}
+.box{
+    width: 300px;
+    background-color:rgb(246, 244, 244);
+    border: 2px solid rgb(72, 239, 72);
+}
+
+/* Thanh search */
+.form-search{
+    display: flex;
+    margin: 8px;
+}
+form{
+    border: 1px solid rgb(213, 210, 210);
+    border-radius: 2px;
+    margin: 5px;
+}
+.search{
+    padding: 10px;
+    border: 1px solid rgb(213, 210, 210);
+    float: left; /* Phần tử sẽ đc căn lề về phía trái, các phần tử khác căn chỉnh theo đối tượng của float */
+    width: 80%;
+    height: 37.78px;
+}
+button{
+    border: 1px solid rgb(213, 210, 210);
+    background: white;
+    width: 20%;
+    padding: 10px;
+    cursor: pointer;
+    height: 37.78px;
+}
+button:hover{
+    background: whitesmoke;
+}
+.fa-solid{
+    color: black; 
+}
+
+/* Body */
+.menu, .submenu1 {
+    list-style: none;
+    display: block;
+    padding: 0;
+    cursor: pointer;
+}
+.menu a {
+    display: flex;
+    text-decoration: none;
+    padding: 15px;
+    margin-left: 30px;
+}
+.menu .submenu1:hover {
+    background-color: rgb(218, 213, 213);
+}
+.menu li:hover .submenu1{
+    display: block;
+    max-height: 350px;
+}
+.submenu1 {
+    overflow: hidden;
+    position: relative;
+    display: none;
+    max-height: 0;
+    margin-left: 30px;
+    background-color: whitesmoke;
+    transition: 2s ease-out;
+} 
+/* li
+{
+    border: 2px solid black;
+}
+.menu, .submenu {
+    list-style: none;
+    display: block;
+    padding: 0;
+    cursor: pointer;
+}
+.menu a {
+    display: flex;
+    text-decoration: none;
+    padding: 15px;
+    margin-left: 30px;
+}
+.menu .submenu:hover {
+    background-color: rgb(218, 213, 213);
+}
+.menu li:hover .subsubmenu {
+    display: block;
+    max-height: 250px;
+}
+.submenu1 {
+    overflow: hidden;
+    position: relative;
+    display: none;
+    max-height: 0;
+    margin-left: 30px;
+    background-color: whitesmoke;
+    transition: 2s ease-out;
+} 
+.subsubmenu  {
+    overflow: hidden;
+    position: relative;
+    display: none;
+    max-height: 0;
+    margin-left: 30px;
+    background-color: whitesmoke;
+    transition: 2s ease-out;
+} 
+.subsubmenu li:hover{
+    background-color: rgb(218, 213, 213);
+} */
+/* Định dạng icon */
+.symbol{
+    position: absolute;
+    color: rgb(62, 62, 217);
+    margin-top: 15px;
+    margin-left: 15px;
+}
+.icon1{
+    /* border: 2px solid black; */
+    width: fit-content;
+    position: relative;
+    margin-top: -33px;
+    margin-left: 250px;
+    font-size: 15;
+    transition: transform 0s;
+}
+li:hover .icon1{
+    transform:rotate(90deg);
+}

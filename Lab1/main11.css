@@ -1,0 +1,77 @@
+body{
+    background: rgb(78, 154, 78);
+    font-family: Arial, sans-serif;
+}
+.box{
+    background-color: rgb(222, 217, 217);
+    margin-left: 5px;
+    margin-right: 5px;
+    border: 2px solid orangered;
+}
+.flex-container{
+    margin: 10px; /* Khoảng trống nằm giữa viền và phần tử tiếp theo, so với thẻ cha */
+    padding: 10px; /* Khoảng cách trống nằm giữa nội dung và viền, so với thẻ con */
+}
+.head{
+    display: flex;
+    align-items: center;
+    border: 3px solid black;
+    padding: 3px;
+}
+ul{
+    list-style-type: none;
+    padding: 0px;
+    margin-top: 0px;
+    overflow: hidden;
+}
+
+li{
+    float: left;
+    border: 1px solid black;
+}
+li a{
+    display: block;
+    text-align: center;
+    font-size: 18px;
+    background: linear-gradient(to bottom, #0f0,black); /* Biên độ màu sắc giảm dần hoặc thay đổi từ màu này sang màu khác */
+    padding: 15px;
+    text-decoration: none; /* Định dạng văn bản bình thường */
+    width: 165px;
+}
+:root{
+    --text-color: white;
+}
+.title{
+    color: var(--text-color);
+}
+.content{
+    display: flex;
+}
+section{
+    flex: 5;
+    border: 1px solid blue;
+    padding: 10px;
+    margin-top: 10px;
+    margin-right: 60px;
+}
+article{
+    border: 1px solid red;
+    padding: 10px;
+    margin: 20px;
+}
+aside{
+    flex: 2;
+    border: 1px solid red;
+    background-color: rgb(20, 209, 203);
+    margin-top: 10px;
+    padding: 10px;
+}
+.text-right{
+    text-align: right;
+    font-size: 20;
+    margin-right: 20px;
+}
+.text-center{
+    text-align: center;
+    font-size: 20;
+}

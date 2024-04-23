@@ -1,0 +1,87 @@
+/* 1. Ở dưới bên phải */
+img
+{
+    width: 280px;
+    height: 280px;
+}
+body
+{
+    background-color: yellow;
+}
+.container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap:wrap;
+} 
+.h{
+    margin: 10px;
+} 
+
+/* 2. Ở trên bên phải 
+img
+{
+    width: 280px;
+    height: 280px;
+}
+body
+{
+    background-color: yellow;
+}
+.container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.h{
+    display: flex;
+    flex-direction: row;
+    align-items:flex-start;
+    margin: 10px;
+} 
+.h{
+    margin: 8px;
+} */
+
+/* 3. Ở trên bên trái 
+img
+{
+    width: 280px;
+    height: 280px;
+}
+body
+{
+    background-color: yellow;
+}
+.container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.h{
+    display: flex;
+    flex-direction:row-reverse;
+    align-items:flex-start;
+    margin: 10px;
+} */
+
+/* 4. Ở trên center  
+img
+{
+    width: 280px;
+    height: 280px;
+}
+body
+{
+    background-color: yellow;
+}
+.container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.h{
+    display: flex;
+    flex-direction:column-reverse;
+    align-items:center;
+    margin: 10px;
+} */
