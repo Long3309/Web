@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Tính tiền món ăn trong nhà hàng</title>
+    <link rel="stylesheet" href="main.css">
+    <script src="script.js"></script>
+</head>
+<body>
+    <form>
+        <table class="parent" align="center" border="1px">
+            <tr>
+                <td>
+                    <b class="inf" id="time"></b>
+                </td>
+
+                <td>
+                    <b class="inf" id="staff">Nhân viên: Nguyễn Văn A</b> 
+                </td>
+            </tr>
+
+            <tr>
+                <td colspan="2" align="center">
+                    <h3 style="margin: 0px;">THỰC ĐƠN</h3>
+                </td>
+            </tr>
+
+            <tr>
+                <td colspan="2" align="center">
+                    <table class="children" border="1px">
+                        <tr class="title" style="background-color: #0033CC;" align="center">
+                            <td><b>Bàn</b></td>
+                            <td><b>Món ăn</b></td>
+                        </tr>
+
+                        <tr>
+                            <td onclick="adjustColumnHeight(this)" onmouseleave="resetColumnHeight(this)">
+                                <select id="table-select">
+                                    <option value="table1">Bàn 1</option>
+                                    <option value="table2">Bàn 2</option>
+                                    <option value="table3">Bàn 3</option>
+                                </select>
+                            </td>
+
+                            <td onclick="adjustColumnHeight(this)" onmouseleave="resetColumnHeight(this)">
+                                <select id="food-select">
+                                    <option value="20.000đ-Bún bò">Bún bò</option> 
+                                    <option value="18.000đ-Hủ tiếu">Hủ tiếu</option>
+                                    <option value="17.000đ-Bánh canh">Bánh canh</option>
+                                    <option value="19.000đ-Phở bò">Phở bò</option>
+                                    <option value="15.000đ-Nui">Nui</option>
+                                </select>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </form>
+
+    <div class="table-container" style="margin-top: 20px;">
+        <table id="table1">
+            <thead>
+                <th colspan="4" style="text-align: center;">Bàn 1</th>
+            </thead>
+            <thead> 
+                <tr>
+                    <th>Món</th>
+                    <th>Số lượng</th>
+                    <th>Giá tiền</th>
+                    <th>Xoá</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+            <thead>
+                <tr>
+                    <td colspan="2" style="color: blue; font-weight: bold; text-align: center">Tổng tiền</td>
+                    <td colspan="2" data-total-price="total-price" style="color: blue; font-weight: bold; text-align: center">0</td>
+                </tr>
+            </thead>
+            <tbody>
+                <th colspan="4" style="text-align: center;"><button class="print-button">In hoá đơn</button></th>
+            </tbody>
+        </table>
+        <table id="table2">
+            <thead>
+                <th colspan="4" style="text-align: center;">Bàn 2</th>
+            </thead>
+            <thead>
+                <tr>
+                    <th>Món</th>
+                    <th>Số lượng</th>
+                    <th>Giá tiền</th>
+                    <th>Xoá</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+            <thead>
+                <tr>
+                    <td colspan="2" style="color: blue; font-weight: bold; text-align: center">Tổng tiền</td>
+                    <td colspan="2" data-total-price="total-price" style="color: blue; font-weight: bold; text-align: center">0</td>
+                </tr>
+            </thead>
+            <tbody>
+                <th colspan="4" style="text-align: center;"><button class="print-button">In hoá đơn</button></th>
+            </tbody>
+        </table>
+        <table id="table3">
+            <thead>
+                <th colspan="4" style="text-align: center;">Bàn 3</th>
+            </thead>
+            <thead>
+                <tr>
+                    <th>Món</th>
+                    <th>Số lượng</th>
+                    <th>Giá tiền</th>
+                    <th>Xoá</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+            <thead>
+                <tr>
+                    <td colspan="2" style="color: blue; font-weight: bold; text-align: center">Tổng tiền</td>
+                    <td colspan="2" data-total-price="total-price" style="color: blue; font-weight: bold; text-align: center">0</td>
+                </tr>
+            </thead>
+            <tbody>
+                <th colspan="4" style="text-align: center;"><button class="print-button">In hoá đơn</button></th>
+            </tbody>
+        </table>
+    </div>
+    <script>
+        var today = new Date();
+        var day = today.getDay();
+        var date = String(today.getDate()).padStart(2,'0'); // padStart luôn hiển thị ngày tháng giờ phút dạng 2 chữ số, nếu chỉ có 1 thì mặc định số đầu là 0
+        var month = String(today.getMonth()+1).padStart(2,'0'); //getMonth()+1 là do hàm getMonth() chỉ chạy từ 0-11
+        var year = today.getFullYear();
+        var hour = String(today.getHours()).padStart(2,'0');
+        var min = String(today.getMinutes()).padStart(2,'0');
+        var datetime = 'Thứ' + ' ' + day + ',' + ' ' + date + '/' + month + '/' + year + ',' + ' ' + hour + ":" + min;
+        document.getElementById("time").innerHTML = datetime; 
+
+        var orderTable = document.getElementById("table");
+        
+        // Thêm sự kiện click cho phần tử select món ăn
+        document.getElementById("food-select").addEventListener("click", function() {
+            var table = document.getElementById("table-select").value; // Lấy giá trị của select bàn
+            var food = this.value.split("-")[1]; // Lấy tên món ăn từ select món ăn
+            var priceWithoutCurrency = this.value.split("-")[0].replace(/[đ,.]/g, ""); // Loại bỏ ký tự "đ" và dấu chấm phẩy
+            var priceInteger = parseInt(priceWithoutCurrency); // Chuyển đổi thành số nguyên
+
+            var orderTable = document.getElementById(table); 
+            
+            var tbody = orderTable.getElementsByTagName("tbody")[0]; // 
+            var tableRows = tbody.getElementsByTagName('tr');
+            var totalPrice = parseInt(orderTable.querySelector('[data-total-price="total-price"]').innerHTML); // Lấy giá trị tổng từ tbody (có attribute data-total-price)
+            var totalPriceElement = orderTable.querySelector('[data-total-price="total-price"]'); // Lấy giá trị tổng từ tbody (có attribute value
+            
+            // Tạo một cờ hiệu để check món ăn đã có trước đó chưa
+            var foundInTable = false;
+            // confirm(tableRows.length);
+            for (var i = 0; i < tableRows.length; i++) {
+                var cells = tableRows[i].getElementsByTagName('td'); 
+                //confirm(cells[0].innerHTML + " " + food);
+                if (cells[0].innerHTML === food) {
+                    confirm("Món ăn đã có trong bảng, số lượng đã được cập nhật");
+                    var quantity = parseInt(cells[1].innerHTML);
+                    cells[1].innerHTML = quantity + 1;
+                    totalPrice = totalPrice + priceInteger;
+                    cells[2].innerHTML = priceInteger * (quantity + 1);
+                    foundInTable = true
+                    break;
+                }
+            }
+            
+            if (!foundInTable) { // Nếu món ăn chưa có trong bảng
+                // Tạo một hàng mới trong bảng đặt hàng
+                var newRow = tbody.insertRow(-1);
+                var cell1 = newRow.insertCell(0);
+                var cell2 = newRow.insertCell(1);
+                var cell3 = newRow.insertCell(2);
+                var cell4 = newRow.insertCell(3);
+    
+                // Gán giá trị cho các ô trong hàng mới
+                cell1.innerHTML = food
+                cell2.innerHTML = 1; // Số lượng mặc định là 1
+
+                cell3.innerHTML = priceInteger; // Lấy giá tiền từ select món ăn
+                cell4.innerHTML = '<button class="delete-button">Xoá</button>'; // Thêm button Xóa
+                // confirm(cell4.innerHTML)
+                totalPrice = totalPrice + priceInteger; // Cập nhật giá trị tổng
+            }
+            // Thêm cột cho bàn và món ăn
+
+            // Cập nhật số lượng tổng
+            totalPriceElement.innerHTML = totalPrice;      
+
+            // Thêm sự kiện click cho button Xoá cho mỗi lần thêm món ăn
+            var deleteButtons = document.querySelectorAll('tbody .delete-button');
+            for (var i = 0; i < deleteButtons.length; i++) {
+                deleteButtons[i].addEventListener("click", function() {
+                    // confirm("Xoá món ăn khỏi bảng");
+                    tableId = this.closest('table').id;
+                    deleteRow(this, tableId);
+                });
+            }
+        });
+        // Xử lý sự kiện click cho button Xoá
+        function deleteRow(button, tableId) {
+            var row = button.parentNode.parentNode;
+            var price = parseInt(row.getElementsByTagName('td')[2].innerHTML);
+            var totalPriceElement = document.getElementById(tableId).querySelector('[data-total-price="total-price"]');
+            var totalPrice = parseInt(totalPriceElement.innerHTML);
+            var quantity = parseInt(row.getElementsByTagName('td')[1].innerHTML);
+            var pricePerItem = price / quantity;
+            totalPrice = totalPrice - price;
+            totalPriceElement.innerHTML = totalPrice;
+            row.parentNode.removeChild(row);
+        }
+        
+        // Lấy tất cả các nút "In hoá đơn" trong tài liệu
+        var printButtons = document.querySelectorAll('tbody .print-button');
+
+        // Đặt sự kiện click cho mỗi nút "In hoá đơn"
+        printButtons.forEach(function(button) {
+            button.addEventListener('click', function() {
+                // Lấy phần tử table cha của nút "In hoá đơn" được click
+                var table = this.closest('table');
+                
+                // Lấy id của bảng
+                var tableId = table.id;
+                var staffName = document.querySelector('[id="staff"]').innerHTML.split(":")[1].trim();
+                
+                // Lọc các button 
+               element = document.getElementById(tableId);
+               // var rows = table.querySelectorAll('tr');
+
+                if (element) {
+                    // Tạo một bản sao của phần tử
+                    var cloneElement = element.cloneNode(true);
+                
+                    // Loại bỏ các phần tử con có thẻ là button
+                    var buttons = cloneElement.querySelectorAll('button');
+                    buttons.forEach(function(button) {
+                        button.parentNode.removeChild(button);
+                    });
+                
+                    // Lấy nội dung của phần tử sau khi loại bỏ các button
+                    var contentWithoutButtons = cloneElement.querySelector('tbody');
+                } 
+                var rows = contentWithoutButtons.querySelectorAll('tr');
+
+                rows.forEach(function(row) {
+                    var lastCell = row.lastElementChild; // Lấy ô cuối cùng của hàng
+                    row.removeChild(lastCell); // Loại bỏ ô cuối cùng
+                });
+                tabelName = table.querySelector('th').innerHTML
+                // Lấy giá trị tổng tiền
+                var totalPriceElement = cloneElement.querySelector('[data-total-price="total-price"]');
+                localStorage.setItem("tableName", tabelName);
+                localStorage.setItem("innerHTML", contentWithoutButtons.innerHTML);
+                localStorage.setItem("staffName", staffName);
+                localStorage.setItem("totalPrice", totalPriceElement.innerHTML);
+                window.location.href = 'hoadon.html';
+            });
+        });
+    </script>
+</body>
+</html>

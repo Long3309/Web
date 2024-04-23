@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Menu</title>
+<style>
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+    }
+
+    th, td {
+        padding: 8px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+
+    tr:hover {
+        background-color: #f5f5f5;
+    }
+
+    .add-button {
+        background-color: #4CAF50;
+        color: white;
+        padding: 6px 12px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    .add-button:hover {
+        background-color: #45a049;
+    }
+
+    select {
+        padding: 6px 12px;
+        border-radius: 4px;
+    }
+</style>
+</head>
+<body>
+
+<h2>Chọn bàn và món ăn</h2>
+
+<div>
+    <label for="table-select">Chọn bàn:</label>
+    <select id="table-select">
+        <option value="table1">Bàn 1</option>
+        <option value="table2">Bàn 2</option>
+    </select>
+
+    <label for="food-select">Chọn món ăn:</label>
+    <select id="food-select">
+        <option value="pho-30000">Phở - 30,000 VNĐ</option>
+        <option value="bun-cha-40000">Bún chả - 40,000 VNĐ</option>
+        <option value="banh-mi-20000">Bánh mì - 20,000 VNĐ</option>
+        <option value="ga-nuong-60000">Gà nướng - 60,000 VNĐ</option>
+        <option value="com-20000">Cơm - 20,000 VNĐ</option>
+    </select>
+
+    <button class="add-button" onclick="addItem()">Thêm món</button>
+</div>
+
+<table id="menu-table1">
+    <thead>
+        <tr>
+            <th>Bàn</th>
+            <th>Món ăn</th>
+            <th>Số lượng</th>
+            <th>Giá tiền</th>
+        </tr>
+    </thead>
+    <tbody>
+    </tbody>
+</table>
+
+<table id="menu-table2">
+    <thead>
+        <tr>
+            <th>Bàn</th>
+            <th>Món ăn</th>
+            <th>Số lượng</th>
+            <th>Giá tiền</th>
+        </tr>
+    </thead>
+    <tbody>
+    </tbody>
+</table>
+
+<script>
+    function addItem() {
+        var tableSelect = document.getElementById('table-select');
+        var selectedTable = tableSelect.value;
+        var foodSelect = document.getElementById('food-select');
+        var selectedFood = foodSelect.options[foodSelect.selectedIndex].text;
+        var selectedFoodPrice = parseInt(foodSelect.value.split("-")[1]);
+        
+        var table1 = document.getElementById('menu-table1');
+        var table2 = document.getElementById('menu-table2');
+        var tbody1 = table1.getElementsByTagName('tbody')[0];
+        var tbody2 = table2.getElementsByTagName('tbody')[0];
+        
+        var tableRows1 = tbody1.getElementsByTagName('tr');
+        var tableRows2 = tbody2.getElementsByTagName('tr');
+        
+        var foundInTable1 = false;
+        var foundInTable2 = false;
+        
+        // Kiểm tra nếu món đã tồn tại trong bàn 1
+        confirm(tableRows1)
+        for (var i = 0; i < tableRows1.length; i++) {
+            var cells = tableRows1[i].getElementsByTagName('td');
+            if (cells[1].innerText === selectedFood && cells[0].innerText === selectedTable) {
+                var quantity = parseInt(cells[2].innerText);
+                cells[2].innerText = quantity + 1;
+                foundInTable1 = true;
+                break;
+            }
+        }
+        
+        // Kiểm tra nếu món đã tồn tại trong bàn 2
+        for (var i = 0; i < tableRows2.length; i++) {
+            var cells = tableRows2[i].getElementsByTagName('td'); 
+            if (cells[1].innerText === selectedFood && cells[0].innerText === selectedTable)  {
+                var quantity = parseInt(cells[2].innerText);
+                cells[2].innerText = quantity + 1;
+                foundInTable2 = true;
+                break;
+            }
+        }
+        
+        // Nếu không tìm thấy món ở bất kỳ bàn nào, thêm mới vào bàn 1
+        if (!foundInTable1) {
+            var newRow1 = tbody1.insertRow();
+            var cell1_1 = newRow1.insertCell(0);
+            var cell2_1 = newRow1.insertCell(1);
+            var cell3_1 = newRow1.insertCell(2);
+            var cell4_1 = newRow1.insertCell(3);
+            cell1_1.innerHTML = selectedTable;
+            cell2_1.innerHTML = selectedFood;
+            cell3_1.innerHTML = 1;
+            cell4_1.innerHTML = selectedFoodPrice;
+        }
+        
+        // Nếu không tìm thấy món ở bất kỳ bàn nào, thêm mới vào bàn 2
+        if (!foundInTable2) {
+            var newRow2 = tbody2.insertRow();
+            var cell1_2 = newRow2.insertCell(0);
+            var cell2_2 = newRow2.insertCell(1);
+            var cell3_2 = newRow2.insertCell(2);
+            var cell4_2 = newRow2.insertCell(3);
+            cell1_2.innerHTML = selectedTable;
+            cell2_2.innerHTML = selectedFood;
+            cell3_2.innerHTML = 1;
+            cell4_2.innerHTML = selectedFoodPrice;
+        }
+    }
+</script>
+
+</body>
+</html>
