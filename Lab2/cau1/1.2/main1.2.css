@@ -1,0 +1,31 @@
+.box{
+    width: fit-content; /* box vừa khít table */
+    border: 2px solid blue;
+    background-color: #f3c15c;
+}
+form{
+    margin: 0px;
+}
+table{
+    margin: 1px;
+    border-collapse: collapse;
+}
+td{
+    border: 2px solid blue;
+}
+#hsl{
+    border: 1px solid black;
+    border-radius: 5px;
+}
+.r{
+    width: 100px;
+}
+#result{
+    border: none;
+    background-color: #f3c15c;
+}
+button{
+    border-radius: 10px;
+    border: 2px solid rgba(98, 194, 250, 0.921);
+    cursor: pointer;
+}

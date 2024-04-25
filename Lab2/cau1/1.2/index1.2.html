@@ -1,0 +1,42 @@
+<!DOCTYPE html5>
+<html>
+    <head>
+        <title>Tính lương</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="main1.2.css">
+        <script src="cau1.2.js"></script>
+    </head>
+    <body>
+        <!-- 1.2. Cho phép nhập lỗi nhưng thông báo -->
+        <div class="box">
+            <form>
+                <table style="border: 2px solid blue; width: 400px; background-color: #f3c15c;">
+                        <tr>
+                            <td class="r">Lương</td>
+                            <td>
+                                <input id="salary" type="text" name="number" oninput="check(number)">
+                                <p id="check"></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="r">Hệ số lương</td>
+                            <td>
+                                <input id="hsl" style="width: 50px;" type="number" name="quantity" min="0" step="0.1">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" align="center">
+                                <button onclick="sum(event)">Tính lương tháng</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="r">Lương tháng</td>
+                            <td>
+                                <input id="result" type="text">
+                            </td>
+                        </tr>
+                </table>
+            </form>
+        </div>
+    </body>
+</html>

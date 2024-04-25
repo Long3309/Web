@@ -1,0 +1,23 @@
+.parent{
+    background-color: antiquewhite;
+    border-collapse:collapse; /* Đảm bảo các đường viền kề nhau một cách chặt chẽ */
+}
+
+.parent td {
+    border: 1px solid black; /* Đường viền đen 1px cho mỗi ô */
+    padding: 10px;
+}
+
+:root{
+    --text-color-input: blue;
+    text-align: center;
+}
+.name{
+    color: var(--text-color-input);
+}
+
+button{
+    border-radius: 10px;
+    padding-left: 5px;
+    border: 1px solid black;
+}
