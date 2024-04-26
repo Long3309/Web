@@ -1,0 +1,60 @@
+
+<!DOCTYPE html5>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="main2.css">
+        <title>Thực đơn câu 2</title> 
+    </head>
+    <body>
+        <form name="catalog">
+            <table class="parent" style="border: 1px solid black; width: 80%" align="center">
+                <tr>
+                    <td colspan="3"><h3 style="text-align: center;">THỰC ĐƠN</h3></td>
+                </tr>
+
+                <tr>
+                    <td class="name" align="center"><b>Thức ăn</b></td>
+
+                    <td class="name" align="center"><b>Nước uống</b></td>
+
+                    <td class="name" align="center"><b>Thời điểm</b></td>
+                </tr>
+
+                <tr>
+                        <td id="namefood">
+                            <option value="Bún bò-20000">Bún bò</option>
+                            <option value="Hủ tiếu-18000">Hủ tiếu</option>
+                            <option value="Bánh canh-17000">Bánh canh</option>
+                            <option value="Phở bò-19000">Phở bò</option>
+                            <option value="Nui-15000đ">Nui</option>
+                            <option value="Bánh mỳ thịt-12000">Bánh mỳ thịt</option>
+                            <option value="Bánh cuốn-15000">Bánh cuốn</option>
+                        </td>
+                        <td id="namedrink" >
+                            <option value="Cà phê đá-12000">Cà phê đá</option>
+                            <option value="Cà phê sữa đá-15000">Cà phê sữa đá</option>
+                            <option value="Chanh dây-13000">Chanh dây</option>
+                            <option value="Chanh muối-12000">Chanh muối</option>
+                            <option value="Xí muội-14000">Xí muội</option>
+                            <option value="Sữa tươi-13000">Sữa tươi</option>
+                            <option value="Cam vắt-17000">Cam vắt</option>
+                        </td>
+
+                    <td style="line-height: 2;">
+                        <input id="bright" type="radio" name="time" value="bright" checked/> Ban ngày
+                        <br>
+                        <input id="night" type="radio" name="time" value="night"/> Ban đêm
+                    </td>
+                </tr>
+
+                <tr>
+                    <td colspan="3" align="center">
+                        <button class="print-button" onclick="printbill()">Tính tiền</button>
+                    </td>
+                </tr>
+            </table>
+        </form>
+        <script src="script.js"></script>
+    </body>
+</html>

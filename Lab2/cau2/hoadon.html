@@ -1,0 +1,41 @@
+
+<!DOCTYPE html5>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="main2.css">
+        <title>Thực đơn câu 2</title> 
+    </head>
+    <body>
+        <table>
+
+        </table>
+        <script>
+            table = document.querySelector("table");
+            table.innerHTML = `
+            <tr>
+                <td><b>Các món đã dùng</b></td>
+                <td><b>Tiền</b></td>
+            </tr>
+
+            <tr>
+                <td>` + selected_food.textContent + ` </td>
+                <td>` + price_food + `</td>
+            </tr>
+            <tr>
+                <td>` + selected_drink.textContent + ` </td>
+                <td>` + price_drink + `</td>
+            </tr>
+
+            <tr>
+                <td><b>Thời điểm</b></td>
+                <td>` + (brightRadioButton.checked ? "Ban ngày" : "Ban đêm") + `</td>
+            </tr>
+
+            <tr>
+                <td><b>Tổng tiền</b></td>
+                <td> ` + total_price +`</td>
+            </tr>
+            `
+        </script>
+    </body>

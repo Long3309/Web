@@ -3,7 +3,13 @@ function printbill(){
     var drink = document.getElementById("namedrink").value;
     var ngay = document.getElementById("bright").value;
     var dem = document.getElementById("night").value; 
-
+    if(dem == true){
+        var time = document.getElementById("night").value;
+        time = "Ban đêm";
+    }
+    if(ngay == true){
+        time = "Ban ngày"
+    }
     var new_window = window.open();
     var table = new_window.document.createElement("table");
     table.style.border = "1px solid black";
@@ -24,6 +30,7 @@ function printbill(){
 
         <tr>
             <td><b>Thời điểm</b></td>
+            <td>` + time + `</td>   
         </tr>
 
         <tr>

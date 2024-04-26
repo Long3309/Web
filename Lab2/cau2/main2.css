@@ -21,3 +21,10 @@ button{
     padding-left: 5px;
     border: 1px solid black;
 }
+.selected {
+    background-color: cornflowerblue;
+}
+option {
+    padding: 5px;
+    cursor: pointer; /* Biểu tượng chuột khi di chuột vào */
+}

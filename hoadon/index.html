@@ -210,12 +210,12 @@
         });
         // Xử lý sự kiện click cho button Xoá
         function deleteRow(button, tableId) {
-            var row = button.parentNode.parentNode;
-            var price = parseInt(row.getElementsByTagName('td')[2].innerHTML);
-            var totalPriceElement = document.getElementById(tableId).querySelector('[data-total-price="total-price"]');
-            var totalPrice = parseInt(totalPriceElement.innerHTML);
-            var quantity = parseInt(row.getElementsByTagName('td')[1].innerHTML);
-            var pricePerItem = price / quantity;
+            var row = button.parentNode.parentNode;  // Lấy hàng chứa button Xoá
+            var price = parseInt(row.getElementsByTagName('td')[2].innerHTML); // Lấy giá tiền của món ăn
+            var totalPriceElement = document.getElementById(tableId).querySelector('[data-total-price="total-price"]'); // Lấy giá trị tổng từ tbody (có attribute data-total-price)
+            var totalPrice = parseInt(totalPriceElement.innerHTML); // Lấy giá trị tổng, chuyển về dạng số nguyên (kiểu Int)
+            var quantity = parseInt(row.getElementsByTagName('td')[1].innerHTML); // 
+             // var pricePerItem = price / quantity;
             totalPrice = totalPrice - price;
             totalPriceElement.innerHTML = totalPrice;
             row.parentNode.removeChild(row);
