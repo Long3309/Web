@@ -1,17 +1,10 @@
 .parent{
     border-spacing: 0px;
 }
-.children{
-    height: 80px;
-    border-spacing: 0px;
-    /* margin-top: 10px;   */
-    /* margin-bottom: 60px; */
-}
+
 :root{
     --text-color-input: blue;
     --font-size-input: 14px;
-    --text-color-title: #CCCC99;
-    --font-size-title: 12px;
 }
 
 .inf{
@@ -20,11 +13,7 @@
     padding-left: 5px;
     padding-right: 50px;
 }
-.title{
-    font-size: var(--font-size-title);
-    color: var(--text-color-title);
-    height: 30px;
-}
+
 
 table {
     border-collapse: collapse;
@@ -33,7 +22,7 @@ table {
     margin-right: auto;
   }
   th, td {
-    border: 1px solid #dddddd;
+    border: 1px solid black;
     padding: 8px;
     text-align: left;
     position: relative;
