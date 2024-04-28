@@ -1,0 +1,54 @@
+<!DOCTYPE html5>
+<html>
+    <head>
+        <title>Máy tính</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="main.css">
+    </head>
+    <body>
+        <div class="container">
+            <h3 style="text-align: center; margin-bottom: 5px;">Máy tính</h3>
+            <form class="box" style="margin: 0px;">
+                Số thứ nhất <input style="padding: 0px; margin-left: 25px;" type="text" id="so1"><br>
+                Số thứ hai <input style="padding: 0px; margin-left: 33px;" type="text" id="so2"><br>
+                <div class="bieuthuc" style="align-items: center;">
+                    <input type="button" name="cong" value="Cộng" onclick="Sum()">
+                    <input type="button" name="tru" value="Trừ" onclick="Deduct()">
+                    <input type="button" name="nhan" value="Nhân" onclick="Multi()">
+                    <input type="button" name="chia" value="Chia" onclick="Division()"><br>
+                </div>
+                Kết quả <input style="padding: 0px; margin-left: 50px ;" type="text" id="kq">
+            </form>
+        </div>
+
+        <script>
+            function Sum(){
+                var a = document.getElementById("so1").value;
+                var b = document.getElementById("so2").value;
+                var c = parseFloat(a) + parseFloat(b);
+                document.getElementById("kq").value = c;
+            } 
+
+            function Deduct(){
+                var a = document.getElementById("so1").value;
+                var b = document.getElementById("so2").value;
+                var c = parseFloat(a) - parseFloat(b);
+                document.getElementById("kq").value = c;
+            }
+
+            function Multi(){
+                var a = document.getElementById("so1").value;
+                var b = document.getElementById("so2").value;
+                var c = parseFloat(a) * parseFloat(b);
+                document.getElementById("kq").value = c;
+            }
+
+            function Division(){
+                var a = document.getElementById("so1").value;
+                var b = document.getElementById("so2").value;
+                var c = parseFloat(a) / parseFloat(b);
+                document.getElementById("kq").value = c;
+            }
+        </script>
+    </body>
+</html>

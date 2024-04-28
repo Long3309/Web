@@ -1,0 +1,26 @@
+table{
+    text-align: center;
+}
+th{
+    width: 90px;
+    color: palevioletred;
+    background-color: rgb(254, 247, 248);
+}
+td{
+    width: 90px;
+}
+.web{
+    background-color: rgb(159, 219, 7);
+}
+.ltdt{
+    background-color: rgb(249, 238, 31);
+}
+.tk_csdl{
+    background-color: rgb(52, 202, 252);
+}
+.hdh{
+    background-color: rgb(74, 143, 247);
+}
+.csdl{
+    background-color: rgb(245, 141, 176);
+}

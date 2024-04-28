@@ -1,0 +1,43 @@
+*{
+    padding: 0;
+    margin: 0;
+ }
+ul{
+    list-style: none;
+    background-color: #00008B;
+}
+li:hover{
+    background-color: #ADFF2F;
+}
+ul li{
+    display: inline-block;
+    position: relative;
+}
+ul li a{
+    color: #FFD700;
+    display: block;
+    text-align: center;
+    font-size: 18px;
+    padding: 15px;
+    text-decoration: none; /* Định dạng văn bản bình thường */
+    width: 165px;
+}
+
+ul li ul.submenu li{
+    display: block;
+    background-color: #00008B;
+}
+
+ul li ul.submenu{
+    width: 100%;
+    position: absolute;
+    display: none;
+    max-height: 0;
+    transition: 2s ease-out;
+}
+ul li:hover ul.submenu{
+    display: block;
+}
+.submenu li:hover{
+    background-color: lightblue;
+ }

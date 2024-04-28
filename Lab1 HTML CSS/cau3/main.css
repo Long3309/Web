@@ -1,0 +1,15 @@
+.container{
+    border: 1px solid black; 
+    width: fit-content; 
+    height: fit-content;
+    background-color: rgb(170, 188, 246);
+}
+.box{
+    line-height: 2.5; 
+    padding: 10px; 
+    margin: 0px;
+}
+
+.bieuthuc{
+    padding-left: 40px;
+}
